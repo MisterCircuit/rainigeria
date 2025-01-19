@@ -3,9 +3,15 @@ import cv2
 import serial
 import time
 
-# Initialize serial communication with Arduino
-arduino = serial.Serial('COM7', 9600)  # Change 'COM3' to the appropriate port for your system
-time.sleep(2)  # Allow time for the serial connection to initialize
+# Prompt the user for the serial port
+port = input("Enter the Arduino serial port (e.g., COM3 or /dev/ttyUSB0): ")
+try:
+    # Establish a connection to the Arduino
+    arduino = serial.Serial(port, 9600, timeout=2)
+    print(f"Connected to Arduino on port {port}")
+except Exception as e:
+    print(f"Error connecting to Arduino on port {port}: {e}")
+    exit()
 
 # Capturing video through webcam 
 webcam = cv2.VideoCapture(1) 
