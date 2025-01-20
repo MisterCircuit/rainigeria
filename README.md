@@ -1,2 +1,2 @@
 # rainigeria
-Documenting my work at RAIN
+Documenting my codes at RAIN
